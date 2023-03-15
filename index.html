@@ -44,7 +44,7 @@
             <div class="col col-md-7">
                 <ul class="list-group" v-if="todos.length > 0">
                     <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(todo, index) in todos">
-                        <div :class="todo.isDone && 'done'">{{todo.task}}</div>
+                        <div @click="changeStatus(index)" :class="todo.isDone && 'done'">{{todo.task}}</div>
                         <button type="button" class="btn btn-danger" @click="removeTodo(index)">
                             <i class="fa-solid fa-trash"></i>
                         </button>

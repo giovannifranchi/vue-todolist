@@ -26,6 +26,13 @@ createApp({
         addTask(){
             this.todos.push(new ToDos(this.toAddTask));
             this.toAddTask = '';
+        },
+        changeStatus(index){
+            if(this.todos[index].isDone){
+                this.todos[index].isDone = false;
+            }else{
+                this.todos[index].isDone = true;
+            }
         }
     }
 }).mount('#app');
