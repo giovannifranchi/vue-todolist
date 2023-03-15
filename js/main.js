@@ -14,6 +14,7 @@ const tasksObj = tasks.map((task)=> new ToDos(task));
 createApp({
     data(){
         return{
+            toAddTask: '',
             pageTitle: 'TodoList',
             todos: tasksObj,
         }
@@ -21,6 +22,10 @@ createApp({
     methods:{
         removeTodo(index){
             this.todos.splice(index, 1);
+        },
+        addTask(){
+            this.todos.push(new ToDos(this.toAddTask));
+            this.toAddTask = '';
         }
     }
 }).mount('#app');
