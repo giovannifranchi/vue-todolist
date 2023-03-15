@@ -3,7 +3,7 @@ const {createApp} = Vue;
 class ToDos{
     constructor(task){
         this.task = task;
-        this.isDone = true;
+        this.isDone = false;
     }
 }
 
@@ -16,6 +16,11 @@ createApp({
         return{
             pageTitle: 'TodoList',
             todos: tasksObj,
+        }
+    },
+    methods:{
+        removeTodo(index){
+            this.todos.splice(index, 1);
         }
     }
 }).mount('#app');
