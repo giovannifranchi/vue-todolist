@@ -24,7 +24,7 @@
         <div class="row justify-content-center">
             <div class="col col-md-7">
                 <div class="input-group mb-3">
-                    <input v-model="toAddTask" type="text" class="form-control" placeholder="Enter a new task" aria-label="new task area" aria-describedby="button-addon2">
+                    <input v-model="toAddTask" type="text" class="form-control" placeholder="Enter a new task" aria-label="new task area" aria-describedby="button-addon2" @keyup.enter="addTask">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="addTask">Add Task</button>
                 </div>
             </div>

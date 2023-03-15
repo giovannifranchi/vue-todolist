@@ -24,8 +24,10 @@ createApp({
             this.todos.splice(index, 1);
         },
         addTask(){
-            this.todos.push(new ToDos(this.toAddTask));
-            this.toAddTask = '';
+            if(this.toAddTask.trim() !== ''){
+                this.todos.push(new ToDos(this.toAddTask));
+                this.toAddTask = '';
+            }
         },
         changeStatus(index){
             if(this.todos[index].isDone){
