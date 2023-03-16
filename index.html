@@ -34,7 +34,7 @@
         <div class="row justify-content-center">
             <div class="col col-md-7">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search Task" aria-label="search task" aria-describedby="button-addon2">
+                    <input v-model="search"  @keyup="searchAction" type="text" class="form-control" placeholder="Search Task" aria-label="search task" aria-describedby="button-addon2">
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
         <div class="row justify-content-center my-4">
             <div class="col col-md-7">
                 <ul class="list-group" v-if="todos.length > 0">
-                    <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(todo, index) in todos">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(todo, index) in searchAction()">
                         <div @click="changeStatus(index)" :class="todo.isDone && 'done'">{{todo.task}}</div>
                         <button type="button" class="btn btn-danger" @click="removeTodo(index)">
                             <i class="fa-solid fa-trash"></i>

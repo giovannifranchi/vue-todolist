@@ -15,6 +15,7 @@ createApp({
     data(){
         return{
             toAddTask: '',
+            search: '',
             pageTitle: 'TodoList',
             todos: tasksObj,
         }
@@ -34,6 +35,13 @@ createApp({
                 this.todos[index].isDone = false;
             }else{
                 this.todos[index].isDone = true;
+            }
+        },
+        searchAction(){
+            if(this.search !== ''){
+                return this.todos.filter((todo)=> todo.task.toLowerCase().includes(this.search.toLowerCase()));
+            }else{
+                return this.todos;
             }
         }
     }
